@@ -40,12 +40,28 @@ css ディレクトリに `style.css` が作られます。
 <script async src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
 ```
 
+
 ```
 $ npx gulp
 ```
 
 
 `*.scss` ファイルを監視し、ブログを自動リロードします。
+
+## HTTPS 環境下での開発
+
+[HTTPS環境下でBrowsersyncの自動リロードを実現](https://www.imuza.com/entry/2018/08/08/160915) をご覧ください。
+
+自己署名証明書をインストールすれば HTTPS 環境下でも自動リロードが可能になります。
+
+その場合は、`gulpfile.js` の `browserSync.init` に以下を追加してください。
+
+```
+        https: {
+            key: "./server.key",
+            cert: "./server.crt"
+        },
+```
 
 ## ライセンス
 
