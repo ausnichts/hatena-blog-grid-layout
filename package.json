@@ -1,0 +1,17 @@
+{
+  "name": "hatena-blog-grid-layout",
+  "version": "1.0.0",
+  "description": "Grid Layout Theme for Hatena Blog.",
+  "author": "ausnichts in IMUZA.com",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.1",
+    "node-sass-package-importer": "^5.2.0",
+    "normalize.css": "^8.0.0",
+    "postcss-import": "^12.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+@charset "utf-8";
+/*
+  Theme: hatena-blog-grid-layout
+  Author: ausnichts in IMUZA.com
+  Responsive: yes
+  Description:
+    はてなブログのデザインCSSカスタマイズ用テーマ Boilerplate を Grid Layout に変更したものです。
+    このCSSおよびSCSSファイルは自由に複製・再配布できます。
+    このテーマをもとにしたデザインテーマの配布も自由です。
+  Released under the MIT License.
+*/
+
+// import normalize
+@import "normalize.css/normalize.css";
+
+// import variable
+@import "lib/_variable";
+
+// import core
+@import "lib/_core";
+
+// 一覧形式のトップページ用（画像入れ替え、位置変更）
+@import "lib/for_archive_index.scss";

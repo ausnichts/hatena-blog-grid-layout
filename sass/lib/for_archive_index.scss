@@ -1,0 +1,30 @@
+.page-index.page-archive {
+    .archive-entry {
+        display: flex;
+        flex-direction: column;
+    }
+    .archive-entry-header {
+        order: 2;
+    }
+    .categories {
+        order: 3;
+    }
+    .entry-thumb-link {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        order: 1;
+    }
+    .entry-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+    }
+    .archive-entry-body {
+        order: 4;
+    }
+}

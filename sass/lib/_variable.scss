@@ -1,0 +1,31 @@
+// Variables
+
+$break-point: 768px;
+$max-content-width: 720px;
+$max-sidebar-width: 300px;
+$min-client-width: 320px;
+$max-margin-2columns: 60px;
+$max-client-width: $max-content-width + $max-margin-2columns + $max-sidebar-width;
+
+$mq-bp: "(min-width: " + $break-point + ")";
+
+// Background color
+$background: #fff;
+$bg-light: #f5f5f5;
+
+// text color
+$text: #454545;
+$text-light: #999;
+$text-header: #333;
+
+// link
+$link: #1487bd;
+$hover: darken($link, 10%);
+
+// border
+$border: #ddd;
+
+// button
+$btn: #fff;
+$btn-hover: #f5f5f5;
+
