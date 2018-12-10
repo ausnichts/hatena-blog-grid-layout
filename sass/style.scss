@@ -14,10 +14,19 @@
 @import "normalize.css/normalize.css";
 
 // import variable
-@import "lib/_variable";
+@import "lib/variable";
+
+// import mixin
+@import "lib/mixin";
 
 // import core
-@import "lib/_core";
+@import "lib/core";
 
-// 一覧形式のトップページ用（画像入れ替え、位置変更）
-@import "lib/for_archive_index.scss";
+// DOM操作した要素
+//@import "lib/imzModules";
+
+// メディアクエリ
+@import "lib/media-queries";
+
+// 確認用
+//@import "lib/for_check.scss";

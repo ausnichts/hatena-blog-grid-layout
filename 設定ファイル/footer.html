@@ -1,0 +1,15 @@
+<script type="text/javascript">
+(function(){
+	var page = document.body.classList;
+	// トップページなら
+	if(page.contains('page-index')){
+		// サムネール画像を元画像に入れ替える
+		var elements = document.getElementsByClassName('entry-thumb');
+		var re = /https%3A%2F%2F.+\.(jpg|jpeg|gif|png|bmp)/i;
+		Array.prototype.forEach.call(elements, function(element) {
+			var imageUri = re.exec(element.getAttribute('style'));
+			if(imageUri !== null) element.style.backgroundImage = 'url(' + decodeURIComponent(imageUri[0]) + ')';
+		});
+	}
+}());
+</script>

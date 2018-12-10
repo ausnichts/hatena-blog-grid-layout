@@ -1,13 +1,22 @@
 // Variables
+$theme-color: blue;
 
+// Media Queries
 $break-point: 768px;
+$mq-bp: "(min-width: " + $break-point + ")";
+// トップページのグリッドギャップ
+$row-gap: 20px;
+$column-gap: 2vw;
+
+//
 $max-content-width: 720px;
 $max-sidebar-width: 300px;
 $min-client-width: 320px;
 $max-margin-2columns: 60px;
 $max-client-width: $max-content-width + $max-margin-2columns + $max-sidebar-width;
 
-$mq-bp: "(min-width: " + $break-point + ")";
+$header-height: 100px;
+$header-height-image-enable: 300px;
 
 // Background color
 $background: #fff;

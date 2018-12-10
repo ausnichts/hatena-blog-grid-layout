@@ -1,0 +1,39 @@
+@mixin iegridhack ($element, $child, $column, $gapr:false, $gapc:false) {
+    $temp: "";
+    @for $i from 1 through ceil($child / $column) {
+        $temp: $temp + auto + " ";
+        @if $gapr != false and $i < ceil($child / $column) {
+            $temp: $temp + $gapr + " ";
+        }
+    }
+    -ms-grid-rows: #{$temp};
+
+    $temp: "";
+    @for $i from 1 through $column {
+        $temp: $temp + 1fr + " ";
+        @if $gapc != false and $i < $column {
+            $temp: $temp + $gapc + " ";
+        }
+    }
+    -ms-grid-columns: #{$temp};
+
+    @content;
+
+    $r: 1;
+    $c: 1;
+    @for $i from 1 through $child {
+        #{$element}:nth-child(#{$i}) {
+            -ms-grid-row: $r;
+            -ms-grid-column: $c;
+            @if ($i % $column == 0) {
+                $r: $r + 1;
+                @if $gapr != false { $r: $r + 1; }
+            }
+            @if $gapc != false {
+                $c: $c + 1;
+                @if ($i % $column == 0) { $c: 0; }
+                $c: $c + 1;
+            }
+        }
+    }
+}

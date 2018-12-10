@@ -1,0 +1,95 @@
+@media #{$mq-bp} {
+	#blog-title,
+	#top-editarea,
+	#top-box,
+	#content,
+	#bottom-editarea {
+		padding-left: calc((100vw - #{$break-point}) * 0.1 + 13px);
+		padding-right: calc((100vw - #{$break-point}) * 0.1 + 13px);
+	}
+	
+	@for $i from 1 through 12 {
+        @for $j from $i through 12 {
+            .col#{$i}-#{$j} {
+                grid-column-start: $i;
+                grid-column-end: $j + 1;
+            }
+        }
+    }    
+    
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr) ;
+    }
+
+    #blog-title-content {
+        @extend .col1-10;
+    }
+
+    .header-image-enable {
+        #blog-title-inner {
+            background-size: cover;
+        }
+        #blog-title-content {
+            margin-left: 50px;
+        }    
+    }
+
+    #content-inner {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: repeat(18, 1fr) ;
+    }
+
+    .page-index,
+    .page-entry,
+    .page-archive {
+        #wrapper {
+            grid-column: 1 / 13;
+        }
+        #box2 {
+            grid-column: 14 / 19;
+            border-top: none;
+        }
+        #box2-inner {
+            margin-top: 0;
+        }
+    }
+
+    .page-index.page-archive {
+        #wrapper {
+            grid-column: 1 / 19;
+            grid-row: 1;
+        }
+        #box2 {
+            grid-column: 1 / 19;
+            grid-row: 2;
+        }
+
+        .archive-entries {
+            display: grid;
+            @include iegridhack('.archive-entry', 12, 2, $row-gap, $column-gap) {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: $row-gap $column-gap;
+            }
+        }
+        #box2-inner {
+            display: grid;
+            @include iegridhack('div', 5, 2, $row-gap, $column-gap) {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: $row-gap $column-gap;
+            }
+        }
+    }
+}
+
+@media (min-width: 1037px) {
+    .page-index.page-archive {
+        .archive-entries {
+            @include iegridhack('.archive-entry', 12, 3, $row-gap, $column-gap);
+        }
+        #box2-inner {
+            @include iegridhack('div', 5, 3, $row-gap, $column-gap);
+        }
+    }
+}
