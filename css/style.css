@@ -368,6 +368,11 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     margin-top: 50px;
 }
 /* ヘッダ画像を設定したとき */
+.header-image-enable #blog-title {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 .header-image-enable #content-inner {
     margin-top: 100px;
 }
@@ -388,8 +393,6 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 .entry-header {
     margin-bottom: 2em;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #ddd;
     position: relative;
 }
 .date {
@@ -829,6 +832,41 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 #footer p {
     margin: .5em auto;
+}
+/* スムーズスクロール */
+.imzScroll {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    z-index: 9;
+}
+.imzScroll li {
+    list-style-type: none;
+    background: #333;
+    opacity: .5;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.313);
+    margin-left: 10px;
+}
+.imzScroll li:hover {
+    opacity: 1;
+}
+.imzScroll li:hover a {
+    color: rgba(255, 255, 255, 0.5);
+}
+.imzScroll li a {
+    display: block;
+    width: calc((100vw - 320px) * .05 + 50px);
+    height: calc((100vw - 320px) * .05 + 50px);
+    font-size: calc((100vw - 320px) * .04 + 28px);
+    line-height: calc((100vw - 320px) * .05 + 45px);
+    color: #fff;
 }
 @media (min-width: 768px) {
     #blog-title,
@@ -1318,6 +1356,38 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     }
     .header-image-enable #blog-title-content {
         margin-left: 50px;
+    }
+    .imzMenu {
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    .imzMenu li {
+        margin: 0;
+        padding: 0;
+        display: table-cell;
+        text-align: center;
+    }
+    .imzMenu li a {
+        display: block;
+        text-decoration: none;
+        color: #454545;
+        padding: 10px 0;
+        border: 1px solid #454545;
+        margin-right: 10px;
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+    .imzMenu li a:hover {
+        background: #dddddd;
+        border-color: #a0a0a0;
+    }
+    .imzMenu li:last-child a {
+        margin-right: 0;
     }
     #content-inner {
         display: -ms-grid;

@@ -35,6 +35,38 @@
         }    
     }
 
+    .imzMenu {
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        li {
+            margin: 0;
+            padding: 0;
+            display: table-cell;
+            text-align: center;
+            a {
+                display: block;
+                text-decoration: none;
+                color: $text;
+                padding: 10px 0;
+                border: 1px solid $text;
+                margin-right: 10px;
+                transition: all .5s;
+                &:hover {
+                    background: #dddddd;
+                    border-color: #a0a0a0; 
+                }
+            }
+            &:last-child a {
+                margin-right: 0;
+            }
+        }
+    }
+
     #content-inner {
         display: grid;
         grid-template-rows: auto auto;
