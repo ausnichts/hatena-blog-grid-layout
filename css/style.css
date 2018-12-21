@@ -311,6 +311,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     color: #0f668f;
 }
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
 /* ヘッダ（グローバルヘッダ）
   グローバルヘッダの中はiframeですが、
   #globalheader-container に背景色や文字色を指定することでiframeの中にも色が反映されます。
@@ -854,12 +858,6 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     border: 1px solid rgba(255, 255, 255, 0.313);
     margin-left: 10px;
 }
-.imzScroll li:hover {
-    opacity: 1;
-}
-.imzScroll li:hover a {
-    color: rgba(255, 255, 255, 0.5);
-}
 .imzScroll li a {
     display: block;
     width: calc((100vw - 320px) * .05 + 50px);
@@ -867,6 +865,89 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     font-size: calc((100vw - 320px) * .04 + 28px);
     line-height: calc((100vw - 320px) * .05 + 45px);
     color: #fff;
+}
+/* offcanvasmenu */
+.offcanvastoggle {
+    display: block;
+    color: #fff;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.offcanvastoggle:hover {
+    color: #fff;
+}
+.offcanvastoggle::before, .offcanvastoggle::after {
+    content: "";
+    background: #454545;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30px;
+    height: 3px;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+}
+.offcanvastoggle::before {
+    -webkit-box-shadow: 0px -10px 0px #454545;
+            box-shadow: 0px -10px 0px #454545;
+}
+.offcanvastoggle::after {
+    -webkit-box-shadow: 0px 10px 0px #454545;
+            box-shadow: 0px 10px 0px #454545;
+}
+.imzMenu {
+    margin: 0;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    right: -90vw;
+    top: 0;
+    padding: 50px 20px;
+    width: 90vw;
+    background: #fff;
+    -webkit-transition: right 500ms;
+    transition: right 500ms;
+}
+.imzMenu > li {
+    list-style: none;
+    border-color: #ddd;
+    border-style: solid;
+    border-width: 1px 0 1px;
+}
+.imzMenu > li a {
+    text-decoration: none;
+    color: #454545;
+    display: block;
+    padding: 10px;
+}
+body.offcanvas {
+    overflow: hidden;
+}
+.offcanvas .offcanvastoggle::before {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.offcanvas .offcanvastoggle::after {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.offcanvas .imzMenu {
+    right: 0vw;
+    z-index: 999;
 }
 @media (min-width: 768px) {
     #blog-title,
@@ -1357,36 +1438,36 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     .header-image-enable #blog-title-content {
         margin-left: 50px;
     }
+    .offcanvastoggle {
+        display: none;
+    }
     .imzMenu {
-        margin: 0;
+        position: relative;
+        right: 0;
         margin-top: 20px;
         padding: 0;
-        list-style-type: none;
         display: table;
         width: 100%;
         table-layout: fixed;
     }
-    .imzMenu li {
+    .imzMenu > li {
         margin: 0;
         padding: 0;
         display: table-cell;
         text-align: center;
+        border: none;
     }
-    .imzMenu li a {
-        display: block;
-        text-decoration: none;
-        color: #454545;
-        padding: 10px 0;
+    .imzMenu > li a {
         border: 1px solid #454545;
         margin-right: 10px;
         -webkit-transition: all .5s;
         transition: all .5s;
     }
-    .imzMenu li a:hover {
+    .imzMenu > li a:hover {
         background: #dddddd;
         border-color: #a0a0a0;
     }
-    .imzMenu li:last-child a {
+    .imzMenu > li:last-child a {
         margin-right: 0;
     }
     #content-inner {
@@ -1515,6 +1596,10 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
         -ms-grid-row: 5;
         -ms-grid-column: 1;
     }
+    .page-index.page-archive #box2-inner div:nth-child(6) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 3;
+    }
 }
 @media (min-width: 1037px) {
     .page-index.page-archive .archive-entries {
@@ -1592,5 +1677,9 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     .page-index.page-archive #box2-inner div:nth-child(5) {
         -ms-grid-row: 3;
         -ms-grid-column: 3;
+    }
+    .page-index.page-archive #box2-inner div:nth-child(6) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 5;
     }
 }

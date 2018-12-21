@@ -35,24 +35,24 @@
         }    
     }
 
+    .offcanvastoggle {
+        display: none;
+    }
     .imzMenu {
-        margin: 0;
+        position: relative;
+        right: 0;
         margin-top: 20px;
         padding: 0;
-        list-style-type: none;
         display: table;
         width: 100%;
         table-layout: fixed;
-        li {
+        >li {
             margin: 0;
             padding: 0;
             display: table-cell;
             text-align: center;
+            border: none;
             a {
-                display: block;
-                text-decoration: none;
-                color: $text;
-                padding: 10px 0;
                 border: 1px solid $text;
                 margin-right: 10px;
                 transition: all .5s;
@@ -107,7 +107,7 @@
         }
         #box2-inner {
             display: grid;
-            @include iegridhack('div', 5, 2, $row-gap, $column-gap) {
+            @include iegridhack('div', 6, 2, $row-gap, $column-gap) {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 grid-gap: $row-gap $column-gap;
             }
@@ -121,7 +121,7 @@
             @include iegridhack('.archive-entry', 12, 3, $row-gap, $column-gap);
         }
         #box2-inner {
-            @include iegridhack('div', 5, 3, $row-gap, $column-gap);
+            @include iegridhack('div', 6, 3, $row-gap, $column-gap);
         }
     }
 }
